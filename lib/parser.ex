@@ -2,7 +2,7 @@ defmodule FreelaReports.Parser do
   def parse_file(filename) do
     "reports/#{filename}"
     |> File.stream!()
-    |> Enum.map(fn line -> parse_line(line) end)
+    |> Stream.map(fn line -> parse_line(line) end)
   end
 
   defp parse_line(line) do
